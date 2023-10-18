@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import MyCart from './Pages/MyCart/MyCart';
 import Register from './Pages/Register/Register';
+import AddBrand from './Pages/AddProduct/AddBrand';
 
 
 const router = createBrowserRouter([
@@ -20,10 +21,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+        loader: ()=> fetch('http://localhost:5000/brands')
       },
       {
         path: '/addproduct',
         element: <AddProduct></AddProduct>,
+      },
+      {
+        path: '/addbrand',
+        element: <AddBrand></AddBrand>
       },
       {
         path: '/mycart',
