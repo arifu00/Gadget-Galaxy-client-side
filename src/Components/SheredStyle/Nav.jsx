@@ -1,8 +1,4 @@
-import {
-  MobileNav,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
+import { MobileNav, Button, IconButton } from "@material-tailwind/react";
 import React from "react";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
@@ -71,7 +67,10 @@ const Nav = () => {
       <nav className="mb-8 bg-blue-gray-50 py-2 md:py-6 shadow-lg">
         <div className="container mx-auto">
           <div className="flex items-center  justify-between text-blue-gray-900">
-            <img src={logo} alt="" className="w-20 h-16 rounded-full" />
+            <div className="flex gap-2 items-center">
+              <img src={logo} alt="" className="w-20 h-16 rounded-full" />
+              <h2 className="font-black md:text-2xl ">Gadget Galaxy</h2>
+            </div>
             <div className="hidden lg:block">
               {" "}
               <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-lg">

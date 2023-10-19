@@ -1,100 +1,148 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
+  const handleAddProduct = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const productName = form.productName.value;
+    const brandName = form.brandName.value;
+    const productType = form.productType.value;
+    const shortDescription = form.shortDescription.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const photo = form.photo.value;
+
+    const newProduct = {
+      productName,
+      brandName,
+      productType,
+      shortDescription,
+      price,
+      rating,
+      photo,
+    };
+    console.log(newProduct);
+
+    // send data to the server
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product added successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        }
+      });
+  };
   return (
     <div>
       <div className="container mx-auto">
-        <div className="bg-[#f4f3f0]  p-32 ">
-          <h3 className="text-3xl font-extrabold text-center mb-8">
+        <div className="bg-[#f4f3f0] px-3 py-5  lg:p-32 ">
+          <h3 className="text-xl md:text-3xl font-extrabold text-center mb-8">
             Add Product...
           </h3>
 
-          <form
-          // onSubmit={handleAddCoffee}
-          >
-            {/* form name & quantity row */}
-            <div className="md:flex gap-8 mb-8">
-              <div className="form-control w-1/2">
+          <form onSubmit={handleAddProduct}>
+            {/* form product name & brand name row */}
+            <div className="md:flex gap-8 lg:mb-8">
+              <div className="form-control lg:w-1/2">
                 <label className="label">
-                  <span className="label-text text-lg font-bold">
+                  <span className="label-text text-base lg:text-lg font-bold">
+                    Product Name
+                  </span>
+                </label>
+
+                <input
+                  type="text"
+                  name="productName"
+                  placeholder="Product Name"
+                  className="p-2 w-full px-3"
+                />
+              </div>
+              <div className="form-control lg:w-1/2">
+                <label className="label">
+                  <span className="label-text text-base lg:text-lg font-bold">
                     Brand Name
                   </span>
                 </label>
 
                 <input
                   type="text"
-                  name="name"
-                  placeholder="Coffee Name"
+                  name="brandName"
+                  placeholder="Brand Name"
                   className="p-2 w-full px-3"
                 />
               </div>
-              <div className="form-control w-1/2">
+            </div>
+            {/* form product type & Short description row */}
+            <div className="md:flex gap-8 lg:mb-8">
+              <div className="form-control lg:w-1/2">
                 <label className="label">
-                  <span className="label-text text-lg font-bold">
-                    Available Quantity
+                  <span className="label-text text-base lg:text-lg font-bold">
+                    Product type
                   </span>
                 </label>
 
                 <input
                   type="text"
-                  name="quantity"
-                  placeholder="Available Quantity"
+                  name="productType"
+                  placeholder="Product Type"
                   className="p-2 w-full px-3"
                 />
               </div>
-            </div>
-            {/* form supplier & tastes row */}
-            <div className="md:flex gap-8 mb-8">
-              <div className="form-control w-1/2">
+              <div className="form-control lg:w-1/2">
                 <label className="label">
-                  <span className="label-text text-lg font-bold">
-                    Supplier Name
+                  <span className="label-text text-base lg:text-lg font-bold">
+                    Short Description
                   </span>
                 </label>
 
                 <input
                   type="text"
-                  name="supplier"
-                  placeholder="Supplier Name"
-                  className="p-2 w-full px-3"
-                />
-              </div>
-              <div className="form-control w-1/2">
-                <label className="label">
-                  <span className="label-text text-lg font-bold">Taste</span>
-                </label>
-
-                <input
-                  type="text"
-                  name="taste"
-                  placeholder="Taste"
+                  name="shortDescription"
+                  placeholder="Short Description"
                   className="p-2 w-full px-3"
                 />
               </div>
             </div>
-            {/* form category & details row */}
-            <div className="md:flex gap-8 mb-8">
-              <div className="form-control w-1/2">
+            {/* form Price & Rating row */}
+            <div className="md:flex gap-8 lg:mb-8">
+              <div className="form-control lg:w-1/2">
                 <label className="label">
-                  <span className="label-text text-lg font-bold">Category</span>
+                  <span className="label-text text-base lg:text-lg font-bold">
+                    Price
+                  </span>
                 </label>
 
                 <input
                   type="text"
-                  name="category"
-                  placeholder="Category"
+                  name="price"
+                  placeholder="Price"
                   className="p-2 w-full px-3"
                 />
               </div>
-              <div className="form-control w-1/2">
+              <div className="form-control lg:w-1/2">
                 <label className="label">
-                  <span className="label-text text-lg font-bold">Details</span>
+                  <span className="label-text text-base lg:text-lg font-bold">
+                    Rating
+                  </span>
                 </label>
 
                 <input
                   type="text"
-                  name="details"
-                  placeholder="Details"
+                  name="rating"
+                  placeholder="Rating"
                   className="p-2 w-full px-3"
                 />
               </div>
@@ -103,7 +151,7 @@ const AddProduct = () => {
             <div className="">
               <div className="form-control ">
                 <label className="label">
-                  <span className="label-text text-lg font-bold">
+                  <span className="label-text text-base lg:text-lg font-bold">
                     Photo URL
                   </span>
                 </label>
@@ -119,14 +167,19 @@ const AddProduct = () => {
             {/* submit btn  */}
             <input
               type="submit"
-              value="Add Coffee"
-              className="py-2 mt-8 text-white text-xl font-semibold rounded-lg btn-block bg-black"
+              value="Add Product"
+              className="py-2 mt-8 text-white text-base lg:text-xl font-semibold rounded-lg btn-block bg-black"
             />
           </form>
-          <div className="text-center">
-            <Link to="/addbrand">
-              <button className="text-red-500 link-hover">Add Brand</button>
-            </Link>
+          <div className="text-center mt-2">
+            <p>
+              If want to add Brand.?
+              <Link to="/addbrand">
+                <button className="text-red-500 link-hover ml-2">
+                  Add Brand
+                </button>
+              </Link>
+            </p>
           </div>
         </div>
       </div>

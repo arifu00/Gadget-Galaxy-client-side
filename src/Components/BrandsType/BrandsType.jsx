@@ -4,9 +4,9 @@ const BrandsType = ({ brand }) => {
   //   console.log(brand);
   return (
     <div>
-      <Link to={`/brands/${brand._id}`}>
-        <div className="relative flex flex-col text-gray-700 bg-white shadow-xl  rounded-xl bg-clip-border ">
-          <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+      <Link to={`/brands/${brand.brandName}`}>
+        <div className="relative flex flex-col text-gray-700 bg-white shadow-xl  rounded-xl bg-clip-border transition duration-300 ease-in-out hover:scale-110">
+          <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40 ">
             <img src={brand.brandPhoto} alt={brand.brandName} />
           </div>
           <div className="p-6">

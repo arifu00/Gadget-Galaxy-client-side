@@ -10,6 +10,7 @@ import AddProduct from "./Pages/AddProduct/AddProduct";
 import MyCart from "./Pages/MyCart/MyCart";
 import Register from "./Pages/Register/Register";
 import AddBrand from "./Pages/AddProduct/AddBrand";
+import Products from "./Components/Products/Products";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://gadget-galaxy-server.vercel.app/brands"),
+        loader: () => fetch("http://localhost:5000/brands"),
       },
       {
         path: "/addproduct",
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/addbrand",
         element: <AddBrand></AddBrand>,
+      },
+      {
+        path: '/brands/:brandName',
+        element: <Products></Products>,
+        loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brandName}`)
       },
       {
         path: "/mycart",

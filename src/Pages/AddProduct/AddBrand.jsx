@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddBrand = () => {
@@ -14,7 +15,7 @@ const AddBrand = () => {
     console.log(brands);
 
     // send data to the server
-    fetch("http://localhost:5000/brands", {
+    fetch("https://gadget-galaxy-server.vercel.app/brands", {
       method: "POST",
       headers:{
         'content-type': 'application/json'
@@ -42,7 +43,7 @@ const AddBrand = () => {
         </h3>
 
         <form onSubmit={handleAddBrand}>
-          {/* form name & quantity row */}
+          {/* form brand name row */}
           <div className="mb-8">
             <div className="form-control lg:w-1/2 mx-auto">
               <label className="label">
@@ -84,6 +85,14 @@ const AddBrand = () => {
             />
           </div>
         </form>
+        <div className="text-center mt-2">
+        <p>
+              If want to add Product.?
+              <Link to="/addproduct">
+                <button className="text-red-500 link-hover ml-2">Add Product</button>
+              </Link>
+            </p>
+          </div>
       </div>
     </div>
   );

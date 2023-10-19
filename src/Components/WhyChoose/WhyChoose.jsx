@@ -7,8 +7,8 @@ import { BsTelephone } from "react-icons/bs";
 const WhyChoose = () => {
   return (
     <div>
-      <div className="mt-12">
-        <div className="">
+      <div className="bg-[#F4F4F4] py-12">
+        <div className="container mx-auto px-5">
           <div className="flex justify-center gap-2 items-center text-lg ">
             {/* icon  */}
             <div className="p-1 bg-[#FF497C] rounded-full text-white">
@@ -23,8 +23,8 @@ const WhyChoose = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 ">
                 {/* card-1  */}
             <div className="">
-              <div className="bg-[#F9F4F1] hover:shadow-xl border border-black px-10 py-12 rounded-lg ">
-                <div className="flex justify-center text-5xl">
+              <div className="bg-[#F4F4F4] hover:shadow-xl border border-black px-10 py-12 rounded-lg transition duration-300 ease-in-out hover:scale-110">
+                <div className="flex justify-center text-5xl text-[#E52E06]">
                   <TbTruckDelivery></TbTruckDelivery>
                 </div>
                 <h3 className="text-center mt-3 text-xl font-bold">Fast & <br /> Secure Delivery</h3>
@@ -32,8 +32,8 @@ const WhyChoose = () => {
             </div>
                 {/* card-2  */}
             <div className="">
-              <div className="bg-[#F9F4F1] hover:shadow-xl border border-black px-10 py-12 rounded-lg ">
-                <div className="flex justify-center text-5xl">
+              <div className="bg-[#F4F4F4] hover:shadow-xl border border-black px-10 py-12 rounded-lg transition duration-300 ease-in-out hover:scale-110">
+                <div className="flex justify-center text-5xl text-[#E52E06]">
                   <LiaMoneyBillWaveSolid></LiaMoneyBillWaveSolid>
                 </div>
                 <h3 className="text-center mt-3  text-xl font-bold">Money Back <br /> Guarantee</h3>
@@ -41,8 +41,8 @@ const WhyChoose = () => {
             </div>
                 {/* card-3  */}
             <div className="">
-              <div className="bg-[#F9F4F1] hover:shadow-xl border border-black px-10 py-12 rounded-lg ">
-                <div className="flex justify-center text-5xl">
+              <div className="bg-[#F4F4F4] hover:shadow-xl border border-black px-10 py-12 rounded-lg transition duration-300 ease-in-out hover:scale-110">
+                <div className="flex justify-center text-5xl text-[#E52E06]">
                   <TbTruckReturn></TbTruckReturn>
                 </div>
                 <h3 className="text-center mt-3  text-xl font-bold">24 Hour <br /> Return Policy</h3>
@@ -50,8 +50,8 @@ const WhyChoose = () => {
             </div>
                 {/* card-4  */}
             <div className="">
-              <div className="bg-[#F9F4F1] hover:shadow-xl border border-black px-10 py-12 rounded-lg ">
-                <div className="flex justify-center text-5xl">
+              <div className="bg-[#F4F4F4] hover:shadow-xl border border-black px-10 py-12 rounded-lg transition duration-300 ease-in-out hover:scale-110">
+                <div className="flex justify-center text-5xl text-[#E52E06]">
                   <TfiSupport></TfiSupport>
                 </div>
                 <h3 className="text-center mt-3  text-xl font-bold">Pro Quality Support</h3>
@@ -59,8 +59,8 @@ const WhyChoose = () => {
             </div>
                 {/* card-5  */}
             <div className="">
-              <div className="bg-[#F9F4F1] hover:shadow-xl border border-black px-10 py-12 rounded-lg ">
-                <div className="flex justify-center text-5xl">
+              <div className="bg-[#F4F4F4] hover:shadow-xl border border-black px-10 py-12 rounded-lg transition duration-300 ease-in-out hover:scale-110">
+                <div className="flex justify-center text-5xl text-[#E52E06]">
                   <BsTelephone></BsTelephone>
                 </div>
                 <h3 className="text-center mt-3  text-xl font-bold">24/7 <br /> call support</h3>
