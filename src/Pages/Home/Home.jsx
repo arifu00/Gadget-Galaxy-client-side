@@ -3,6 +3,7 @@ import Banner from "../../Components/SheredStyle/Banner";
 import BrandsType from "../../Components/BrandsType/BrandsType";
 import WhyChoose from "../../Components/whyChoose/whyChoose";
 import DiscountCoupon from "../../Components/DiscountCoupon/DiscountCoupon";
+import OurBestPro from "../../OurBestPro/OurBestPro";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -26,6 +27,16 @@ const Home = () => {
       {/* Discount-Coupon section  */}
       <div className="mt-20">
         <DiscountCoupon></DiscountCoupon>
+      </div>
+      {/* our best product  */}
+      <div className="my-20 container mx-auto px-5">
+        <h2 className="text-center text-xl md:text-3xl  font-extrabold">
+          Our Best Product
+        </h2>
+        <div className="border border-b-0  border-black mt-4 "></div>
+        <div className="">
+          <OurBestPro></OurBestPro>
+        </div>
       </div>
       {/* why choose us section  */}
       <div className="mt-20 ">
