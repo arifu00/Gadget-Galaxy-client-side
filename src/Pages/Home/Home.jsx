@@ -3,7 +3,7 @@ import Banner from "../../Components/SheredStyle/Banner";
 import BrandsType from "../../Components/BrandsType/BrandsType";
 import WhyChoose from "../../Components/whyChoose/whyChoose";
 import DiscountCoupon from "../../Components/DiscountCoupon/DiscountCoupon";
-import OurBestPro from "../../OurBestPro/OurBestPro";
+import OurBestPro from "../../Components/OurBestPro/OurBestPro";
 
 const Home = () => {
   const brands = useLoaderData();

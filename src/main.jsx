@@ -13,6 +13,7 @@ import AddBrand from "./Pages/AddProduct/AddBrand";
 import Products from "./Components/Products/Products";
 import ProductDetails from "./Components/Products/ProductDetails";
 import UpdateProduct from "./Pages/AddProduct/UpdateProduct";
+import AuthProvider from "./providers/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -34,25 +35,27 @@ const router = createBrowserRouter([
         element: <AddBrand></AddBrand>,
       },
       {
-        path: '/brands/:brandName',
+        path: "/brands/:brandName",
         element: <Products></Products>,
-        loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brandName}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/brands/${params.brandName}`),
       },
       {
-        path: '/product/:id/',
+        path: "/product/:id/",
         element: <ProductDetails></ProductDetails>,
-        loader: ({params})=> fetch (`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
-        path: '/updateproduct/:id/',
+        path: "/updateproduct/:id/",
         element: <UpdateProduct></UpdateProduct>,
-        loader: ({params})=> fetch (`http://localhost:5000/product/${params.id}`)
-        
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "/mycart",
         element: <MyCart></MyCart>,
-        loader:()=>fetch('http://localhost:5000/addtocard')
+        loader: () => fetch("http://localhost:5000/addtocard"),
       },
       {
         path: "/login",
@@ -67,6 +70,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
