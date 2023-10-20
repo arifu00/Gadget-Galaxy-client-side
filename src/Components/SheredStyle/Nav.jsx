@@ -10,6 +10,7 @@ import profile from "../../assets/profile.png";
 const Nav = () => {
   const [openNav, setOpenNav] = React.useState(false);
   const { user, logOut } = useContext(AuthContext);
+ 
   const handleLogOut = () => {
     logOut().then().catch();
   };

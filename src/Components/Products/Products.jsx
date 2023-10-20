@@ -100,7 +100,7 @@ const Products = () => {
                           {product.rating}
                         </p>
                       </div>
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="md:flex flex-col lg:flex-row items-center justify-between mb-3">
                         <h5 className=" inline-flex rounded-2xl  text-xl  font-medium text-[#3577F0] mb-3 bg-[#FCE5DD] px-3 py-1">
                           Brand: {product.brandName}
                         </h5>

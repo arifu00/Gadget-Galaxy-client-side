@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const loadProduct = useLoaderData();
+  console.log(loadProduct);
   const {
     _id,
     productName,
@@ -35,7 +36,7 @@ const UpdateProduct = () => {
       photo,
     };
     // console.log(updatedProduct);
-
+    console.log(_id);
     // send data to the server
     fetch(`http://localhost:5000/products/${_id}`, {
       method: "PUT",
