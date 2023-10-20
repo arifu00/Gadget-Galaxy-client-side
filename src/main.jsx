@@ -9,11 +9,11 @@ import Login from "./Pages/Login/Login";
 import AddProduct from "./Pages/AddProduct/AddProduct";
 import MyCart from "./Pages/MyCart/MyCart";
 import Register from "./Pages/Register/Register";
-import AddBrand from "./Pages/AddProduct/AddBrand";
 import Products from "./Components/Products/Products";
 import ProductDetails from "./Components/Products/ProductDetails";
 import UpdateProduct from "./Pages/AddProduct/UpdateProduct";
 import AuthProvider from "./providers/AuthProvider";
+import PrivateRoute from "./providers/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,33 +28,50 @@ const router = createBrowserRouter([
       },
       {
         path: "/addproduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
-      {
-        path: "/addbrand",
-        element: <AddBrand></AddBrand>,
-      },
+
       {
         path: "/brands/:brandName",
-        element: <Products></Products>,
+        element: (
+          <PrivateRoute>
+            <Products></Products>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/brands/${params.brandName}`),
       },
       {
         path: "/product/:id/",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "/updateproduct/:id/",
-        element: <UpdateProduct></UpdateProduct>,
+        element: (
+          <PrivateRoute>
+            <UpdateProduct></UpdateProduct>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/${params.id}`),
       },
       {
         path: "/mycart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/addtocard"),
       },
       {

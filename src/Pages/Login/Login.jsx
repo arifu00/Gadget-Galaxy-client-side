@@ -1,49 +1,68 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import { BsGoogle } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  // const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
 
-  // const location = useLocation();
+  const location = useLocation();
   // console.log(location);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
-    // signIn(email, password)
-    //   .then((result) => {
-    //     swal("Congratulations", "Your Login is Successful", "success");
-    //     console.log(result.user);
-    //     navigate(location?.state ? location.state : "/");
-    //   })
-      // .catch((error) => {
-      //   swal("OOPS", `Password doesn't match`, "error");
-      //   console.log(error);
-      // });
+    // console.log(email, password);
+    signIn(email, password)
+      .then((result) => {
+        Swal.fire({
+          title: "Congratulations!",
+          text: "Your Login is Successful",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "OOPS!",
+          text: `Password doesn't match`,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
 
-    // e.target.reset();
+    e.target.reset();
   };
   // google provider
-  // const provider = new GoogleAuthProvider();
-  // const handleGoogleLogin = () => {
-  //   googleSignIn(provider)
-  //     .then((result) => {
-  //       swal("Congratulations", "Your Login is Successful", "success");
-  //       console.log(result.user);
-  //       navigate(location?.state ? location.state : "/");
-  //     })
-  //     .catch((error) => {
-  //       swal(
-  //         "OOPS",
-  //         `Your Login is Failed 
-  //       ${error.message}`,
-  //         "error"
-  //       );
-  //     });
-  // };
+  const provider = new GoogleAuthProvider();
+  const handleGoogleLogin = () => {
+    googleSignIn(provider)
+      .then((result) => {
+        Swal.fire({
+          title: "Congratulations!",
+          text: `Your Login is Successful`,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "OOPS!",
+          text: `Password doesn't match  ${error.message}`,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
+  };
   return (
     <div>
       <div className="container  md:mx-auto">
@@ -107,12 +126,11 @@ const Login = () => {
             <div className="text-center flex justify-center mt-3 ">
               <div className="">
                 <button
-                  // onClick={handleGoogleLogin}
+                  onClick={handleGoogleLogin}
                   className="py-4 flex gap-2 items-center btn-outline btn-info px-4 text-white text-xl font-semibold rounded-lg  "
                 >
-                 {/* <BsGoogle></BsGoogle> Login with google */}
+                  <BsGoogle></BsGoogle> Login with google
                 </button>
-                
               </div>
             </div>
           </div>

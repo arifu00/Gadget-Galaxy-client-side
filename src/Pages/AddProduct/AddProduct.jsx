@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import Swal from "sweetalert2";
 
 const AddProduct = () => {
@@ -171,16 +171,6 @@ const AddProduct = () => {
               className="py-2 mt-8 text-white text-base lg:text-xl font-semibold rounded-lg btn-block bg-black"
             />
           </form>
-          <div className="text-center mt-2">
-            <p>
-              If want to add Brand.?
-              <Link to="/addbrand">
-                <button className="text-red-500 link-hover ml-2">
-                  Add Brand
-                </button>
-              </Link>
-            </p>
-          </div>
         </div>
       </div>
     </div>

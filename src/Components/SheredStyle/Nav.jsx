@@ -1,12 +1,18 @@
-import { MobileNav, Button, IconButton } from "@material-tailwind/react";
-import React from "react";
+import { MobileNav, IconButton } from "@material-tailwind/react";
+import React, { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import profile from '../../assets/profile.png'
 
 // nav use from "material-tailwind"
 
 const Nav = () => {
   const [openNav, setOpenNav] = React.useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
 
   React.useEffect(() => {
     window.addEventListener(
@@ -87,13 +93,53 @@ const Nav = () => {
                   : ""
               }
             >
-              <Button
+              <div className="hidden lg:inline-block text-lg">
+                <div className="">
+                  {user ? (
+                    <>
+                      <div className="">
+                        <div className="avatar ">
+                          <div className="w-12 mr-4 rounded-full flex gap-2">
+                            <img
+                              src={user?.photoURL || profile}
+                              alt={user.displayName}
+                            />
+                          </div>
+                          <button
+                        onClick={handleLogOut}
+                        className=" text-xl font-medium text-slate-950"
+                      >
+                        Log Out
+                      </button>
+                        </div>
+                      </div>
+                     
+                    </>
+                  ) : (
+                    <NavLink
+                      to="/login"
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "text-green-500 underline font-extrabold"
+                          : ""
+                      }
+                    >
+                      <a className=" text-xl font-medium text-slate-950">
+                        Login
+                      </a>
+                    </NavLink>
+                  )}
+                </div>
+              </div>
+              {/* <Button
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block text-lg"
+                className=""
               >
                 <span>Login</span>
-              </Button>
+              </Button> */}
             </NavLink>
             <IconButton
               variant="text"
