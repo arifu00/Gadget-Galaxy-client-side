@@ -3,11 +3,12 @@ import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const product = useLoaderData();
-//   console.log(product);
-
-  const handleAddToCart = id =>{
+  //   console.log(product);
+  
+  const handleAddToCart = () =>{
     // console.log(id);
-    fetch('http://localhost:5000/addtocard',{
+
+    fetch('https://gadget-galaxy-server.vercel.app/addtocard',{
         method: 'POST',
         headers:{
             'content-type': 'application/json'

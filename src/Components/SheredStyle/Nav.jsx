@@ -181,8 +181,8 @@ const Nav = () => {
             </IconButton>
           </div>
           <div className="text-center text-base pb-5 text-black font-bold">
-            {user?.displayName ?
-              `Welcome ${user.displayName} !! Have a nice day.` : `Welcome mr. !! Have a nice day.` }
+            {user?.displayName &&
+              `Welcome ${user.displayName} !! Have a nice day.`  }
           </div>
           <MobileNav open={openNav}>
             <div className="container mx-auto text-lg">

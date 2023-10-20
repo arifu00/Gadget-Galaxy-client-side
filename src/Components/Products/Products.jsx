@@ -9,10 +9,10 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   const { brandName } = useParams();
-  //   console.log(brandName);
+    console.log(brandName, products);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://gadget-galaxy-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

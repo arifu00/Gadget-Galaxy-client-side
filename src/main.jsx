@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () => fetch("https://gadget-galaxy-server.vercel.app/brands"),
       },
       {
         path: "/addproduct",
@@ -37,13 +37,11 @@ const router = createBrowserRouter([
 
       {
         path: "/brands/:brandName",
-        element: (
-          <PrivateRoute>
-            <Products></Products>
-          </PrivateRoute>
-        ),
+        element: <Products></Products>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/brands/${params.brandName}`),
+          fetch(
+            `https://gadget-galaxy-server.vercel.app/brands/${params.brandName}`
+          ),
       },
       {
         path: "/product/:id/",
@@ -53,7 +51,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://gadget-galaxy-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/updateproduct/:id/",
@@ -63,7 +63,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://gadget-galaxy-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/mycart",
@@ -72,7 +74,8 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/addtocard"),
+        loader: () =>
+          fetch("https://gadget-galaxy-server.vercel.app/addtocard"),
       },
       {
         path: "/login",

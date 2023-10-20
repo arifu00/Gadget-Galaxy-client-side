@@ -19,14 +19,14 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // console.log('delete confirmed');
-        fetch(`http://localhost:5000/addtocard/${id}`, {
+        fetch(`https://gadget-galaxy-server.vercel.app/addtocard/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your coffee has been deleted.", "success");
+              Swal.fire("Deleted!", "Product has been deleted.", "success");
               const remaining = cartProducts.filter((product) => product._id !== id);
               setProducts(remaining);
             }
