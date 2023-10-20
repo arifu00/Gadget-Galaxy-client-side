@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import profile from '../../assets/profile.png'
+import profile from "../../assets/profile.png";
 
 // nav use from "material-tailwind"
 
@@ -106,14 +106,13 @@ const Nav = () => {
                             />
                           </div>
                           <button
-                        onClick={handleLogOut}
-                        className=" text-xl font-medium text-slate-950"
-                      >
-                        Log Out
-                      </button>
+                            onClick={handleLogOut}
+                            className=" text-xl font-medium text-slate-950"
+                          >
+                            Log Out
+                          </button>
                         </div>
                       </div>
-                     
                     </>
                   ) : (
                     <NavLink
@@ -141,6 +140,7 @@ const Nav = () => {
                 <span>Login</span>
               </Button> */}
             </NavLink>
+
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -178,6 +178,10 @@ const Nav = () => {
                 </svg>
               )}
             </IconButton>
+          </div>
+          <div className="text-center text-base pb-5 text-black font-bold">
+            {user?.displayName ?
+              `Welcome ${user.displayName} !! Have a nice day.` : `Welcome mr. !! Have a nice day.` }
           </div>
           <MobileNav open={openNav}>
             <div className="container mx-auto text-lg">

@@ -1,10 +1,14 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+
+  const location = useLocation();
+  // console.log(location);
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -36,6 +40,7 @@ const Register = () => {
             icon: "success",
             confirmButtonText: "OK",
           });
+          navigate(location?.state ? location.state : "/");
         })
         .catch((error) => {
           Swal.fire({
