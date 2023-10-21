@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://gadget-galaxy-server.vercel.app/brands"),
+        loader: () => fetch("https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/brands"),
       },
       {
         path: "/addproduct",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Products></Products>,
         loader: ({ params }) =>
           fetch(
-            `https://gadget-galaxy-server.vercel.app/brands/${params.brandName}`
+            `https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/brands/${params.brandName}`
           ),
       },
       {
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://gadget-galaxy-server.vercel.app/products/${params.id}`
+            `https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://gadget-galaxy-server.vercel.app/products/${params.id}`
+            `https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () =>
-          fetch("https://gadget-galaxy-server.vercel.app/addtocard"),
+          fetch("https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/addtocard"),
       },
       {
         path: "/login",

@@ -12,7 +12,7 @@ const Products = () => {
     console.log(brandName, products);
 
   useEffect(() => {
-    fetch("https://gadget-galaxy-server.vercel.app/products")
+    fetch("https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

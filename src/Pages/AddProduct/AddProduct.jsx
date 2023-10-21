@@ -25,7 +25,7 @@ const AddProduct = () => {
     console.log(newProduct);
 
     // send data to the server
-    fetch("https://gadget-galaxy-server.vercel.app/products", {
+    fetch("https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

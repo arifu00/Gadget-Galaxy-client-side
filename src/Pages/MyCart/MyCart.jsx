@@ -19,7 +19,7 @@ const MyCart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // console.log('delete confirmed');
-        fetch(`https://gadget-galaxy-server.vercel.app/addtocard/${id}`, {
+        fetch(`https://gadget-galaxy-server-49jhfspmu-arifs-projects-52e10814.vercel.app/addtocard/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
